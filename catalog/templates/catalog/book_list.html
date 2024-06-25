@@ -10,7 +10,7 @@
 
 {% block content %}
     {% if book_list %}
-        <p>Showing <b>{{ book_list.count }}</b> books{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
+        <p>Showing <b>{{ book_list.count }}</b> book{{ book_list.count|pluralize }}{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
         <ul>
             {% for book in book_list %}
                 <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by <i>{{ book.author }}</i></li>

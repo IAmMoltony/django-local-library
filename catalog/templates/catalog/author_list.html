@@ -10,7 +10,7 @@
 
 {% block content %}
     {% if author_list %}
-        <p>Showing <b>{{ author_list.count }}</b> authors{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
+        <p>Showing <b>{{ author_list.count }}</b> author{{ author_list.count|pluralize }}{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
         <ul>
             {% for author in author_list %}
                 <li>

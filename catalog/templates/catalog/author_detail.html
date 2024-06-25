@@ -22,7 +22,7 @@
                 <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> <i>({{ book.bookinstance_set.count }} copies)</i>
                 <ul>
                     <li><u>Language</u>: {{ book.language }}</li>
-                    <li><u>Genre(s)</u>: {{ book.genre.all|join:', ' }}</li>
+                    <li><u>Genre{{ book.genre.count|pluralize }}</u>: {{ book.genre.all|join:', ' }}</li>
                     <li><u>ISBN</u>: {{ book.isbn }}</li>
                 </ul>
             </li>

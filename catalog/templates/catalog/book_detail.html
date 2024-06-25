@@ -15,7 +15,7 @@
         <li><u>Summary</u>: {{ book.summary }}</li>
         <li><u>ISBN</u>: {{ book.isbn }}</li>
         <li><u>Language</u>: {{ book.language }}</li>
-        <li><u>Genre</u>: {{ book.genre.all|join:', ' }}</li>
+        <li><u>Genre{{ book.genre.count|pluralize }}</u>: {{ book.genre.all|join:', ' }}</li>
     </ul>
 
     <h3>Copies:</h3>

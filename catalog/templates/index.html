@@ -12,9 +12,9 @@
     <p>Welcome to the local library website, developed by <a href="https://github.com/IAmMoltony">Moltony.</a></p>
     <p>Our library currently has:</p>
     <ul>
-        <li>{{ num_books }} books</li>
+        <li>{{ num_books }} book{{ num_books|pluralize }}</li>
         <li>{{ num_instances }} copies</li>
         <li>{{ num_available_instances }} available copies</li>
-        <li>{{ num_authors }} authors</li>
+        <li>{{ num_authors }} author{{ num_authors|pluralize }}</li>
     </ul>
 {% endblock %}
