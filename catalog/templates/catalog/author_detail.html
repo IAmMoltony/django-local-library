@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Author Details: {{ author.last_name }} {{ author.first_name }}</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Author details</h3>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li><u>Name</u>: {{ author.last_name }} {{ author.first_name }}</li>
+        <li><u>Born</u>: {% if author.date_of_birth %}{{ author.date_of_birth }}{% else %}-{% endif %}</li>
+        <li><u>Died</u>: {% if author.date_of_death %}{{ author.date_of_death }}{% else %}-{% endif %}</li>
+    </ul>
+
+    <h2>Books</h2>
+    {% for book in author.book_set.all %}
+        <ul>
+            <li>
+                <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> <i>({{ book.bookinstance_set.count }} copies)</i>
+                <ul>
+                    <li><u>Language</u>: {{ book.language }}</li>
+                    <li><u>Genre(s)</u>: {{ book.genre.all|join:', ' }}</li>
+                    <li><u>ISBN</u>: {{ book.isbn }}</li>
+                </ul>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

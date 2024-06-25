@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Authors</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Authors</h3>
+{% endblock %}
+
+{% block content %}
+    {% if author_list %}
+        <p>Showing <b>{{ author_list.count }}</b> authors{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
+        <ul>
+            {% for author in author_list %}
+                <li>
+                    <a href="{{ author.get_absolute_url }}">{{ author.last_name }} {{ author.first_name }}</a>
+                    {% if author.date_of_birth and author.date_of_death %}
+                        ({{ author.date_of_birth }} - {{ author.date_of_death }})
+                    {% elif author.date_of_birth %}
+                        (born {{ author.date_of_birth }})
+                    {% elif author.date_of_death %}
+                        (died {{ author.date_of_death }})
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no authors in the library.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Home</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Home</h3>
+{% endblock %}
+
+{% block content %}
+    <p>Welcome to the local library website, developed by <a href="https://github.com/IAmMoltony">Moltony.</a></p>
+    <p>Our library currently has:</p>
+    <ul>
+        <li>{{ num_books }} books</li>
+        <li>{{ num_instances }} copies</li>
+        <li>{{ num_available_instances }} available copies</li>
+        <li>{{ num_authors }} authors</li>
+    </ul>
+{% endblock %}

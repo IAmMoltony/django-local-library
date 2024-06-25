@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>Local Library</title>
+    {% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Local Library</h1>
+    {% block pageheading %}
+        <h3>Page</h3>
+    {% endblock %}
+    <hr>
+    {% block navigation %}
+        <a href="{% url 'index' %}">Home</a> | <a href="{% url 'books' %}">Books</a> | <a href="{% url 'authors' %}">Authors</a>
+    {% endblock %}
+    <hr>
+    {% block content %}
+    {% endblock %}
+
+    {% block pagination %}
+        {% if is_paginated %}
+            <hr>
+            {% if page_obj.has_previous %}
+                <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">&lt; prev</a>
+            {% endif %}
+            Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            {% if page_obj.has_next %}
+                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">&gt; next</a>
+            {% endif %}
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+*
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a
+{
+    color: green;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: lightgreen;
+    text-decoration: underline;
+}
+
+a:visited
+{
+    color: olive;
+}

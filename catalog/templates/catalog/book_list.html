@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Books</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Books</h3>
+{% endblock %}
+
+{% block content %}
+    {% if book_list %}
+        <p>Showing <b>{{ book_list.count }}</b> books{% if is_paginated %} out of <b>{{ page_obj.paginator.count }}</b>{% endif %}.</p>
+        <ul>
+            {% for book in book_list %}
+                <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a> by <i>{{ book.author }}</i></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no books in the library.</p>
+    {% endif %}
+{% endblock %}
