@@ -13,8 +13,8 @@
     <p>Our library currently has:</p>
     <ul>
         <li>{{ num_books }} book{{ num_books|pluralize }}</li>
-        <li>{{ num_instances }} copies</li>
-        <li>{{ num_available_instances }} available copies</li>
+        <li>{{ num_instances }} cop{{ num_instances|pluralize:'y,ies' }}</li>
+        <li>{{ num_available_instances }} available cop{{ num_available_instances|pluralize:'y,ies' }}</li>
         <li>{{ num_authors }} author{{ num_authors|pluralize }}</li>
     </ul>
 {% endblock %}
