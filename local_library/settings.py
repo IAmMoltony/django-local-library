@@ -130,3 +130,5 @@ STATICFILES_DIRS = [
 SESSION_SAVE_EVERY_REQUEST = True
 
 LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.email.backends.console.EmailBackend' # this will redirect all email to the console

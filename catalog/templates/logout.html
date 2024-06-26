@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Log Out</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Log out</h3>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Log out">
+    </form>
+{% endblock %}

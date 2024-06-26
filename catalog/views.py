@@ -17,6 +17,9 @@ def index(request):
 
     return render(request, 'index.html', context=context)
 
+def logout(request):
+    return render(request, 'logout.html')
+
 class BookListView(generic.ListView):
     model = models.Book
     paginate_by = 20

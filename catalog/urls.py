@@ -7,4 +7,5 @@ urlpatterns = [
     path('book/<int:pk>', views.BookDetailsView.as_view(), name='book-details'),
     path('authors/', views.AuthorListView.as_view(), name='authors'),
     path('author/<int:pk>', views.AuthorDetailsView.as_view(), name='author-details'),
+    path('logout/', views.logout, name='logoutpage')
 ]
