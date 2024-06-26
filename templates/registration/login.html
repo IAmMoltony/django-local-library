@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Local Library Login</title>
+{% endblock %}
+
+{% block pageheading %}
+    <h3>Log in</h3>
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p class="errortext">Username or password incorrect. Try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p class="errortext">Your account doesn't have access to this page.</p>
+        {% else %}
+            <p class="errortext">Please log in to see this page.</p>
+        {% endif %}
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ form.username.label_tag }} {{ form.username }}<br><br>
+        {{ form.password.label_tag }} {{ form.password }}<br><br>
+        <input type="submit" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+{% endblock %}

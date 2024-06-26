@@ -55,7 +55,7 @@ ROOT_URLCONF = 'local_library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,3 +128,5 @@ STATICFILES_DIRS = [
 ]
 
 SESSION_SAVE_EVERY_REQUEST = True
+
+LOGIN_REDIRECT_URL = '/'
